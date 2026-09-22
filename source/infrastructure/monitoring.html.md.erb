@@ -334,7 +334,7 @@ Generates 30-day rolling window and month-to-date unique TLS (Certificate-Based 
 | `monthly_rolling_tls` | `Performance::UseCase::MonthlyRollingWindowActiveTlsUsers` | `service-report-active-tls-user-rolling-count` | Active TLS Users |
 | `month_to_date_tls` | `Performance::UseCase::MonthToDateActiveTlsUsers` | `service-report-active-tls-user-mtd-count` | Active TLS Users (MTD) |
 
-Each metric is stored in `S3_METRICS_BUCKET` as a daily JSON file (e.g. `service-report-active-tls-user-rolling-count-2026-07-17`) containing `{"count":...,"metric_name":...,"period":"day","date":...}` and posted to the Metrics API (`POST /v1/record`).
+Each metric is stored in `S3_METRICS_BUCKET` as a daily JSON file (e.g. `service-report-active-tls-user-rolling-count-2026-07-17`) containing `{"count":...,"run_time":...,"metric_name":...,"period":"day","date":...}` and posted to the Metrics API (`POST /v1/record`).
 The task is invoked automatically every morning as part of `bundle exec rake publish_daily_total_metrics`.
 
 
